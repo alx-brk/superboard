@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet name="css/bootstrap.css"/>
+        <h:outputStylesheet name="css/style.css"/>
+        <title>Board</title>
+    </h:head>
+    <h:body>
+        <div class="page-header header-my">
+            <h1>Railroad</h1>
+        </div>
+
+        <div>
+            <hr class="hr-primary"/> </div>
+        <div class="p-3 gradient-overlay bg-secondary"> </div>
+
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body p-5 card-my">
+                            <h3 class="pb-3">Saint-Petersburg</h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p:dataTable tableStyleClass="table table-hover" var="stationInfo" value="#{index.infoList}">
+                                        <p:column headerText="Ride ID">
+                                            <h:outputText value="#{stationInfo.rideId}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Departure">
+                                            <h:outputText value="#{stationInfo.datetime}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Route">
+
+                                            <p:dataTable var="station" value="#{stationInfo.stations}">
+                                                <p:column headerText="Station">
+                                                    <h:outputText value="#{station.station}"/>
+                                                </p:column>
+
+                                                <p:column headerText="Time">
+                                                    <h:outputText value="#{station.dateTime}"/>
+                                                </p:column>
+                                            </p:dataTable>
+
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <f:websocket channel="infoChanges" onmessage="myFunc"/>
+
+
+        <h:outputScript name="js/jquery-3.3.1.min.js"/>
+        <h:outputScript name="js/bootstrap.min.js"/>
+
+        <script>
+            function myFunc(message, channel, event) {
+                alert(message);
+            }
+        </script>
+    </h:body>
+</html>

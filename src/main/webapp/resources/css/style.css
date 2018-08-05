@@ -1,0 +1,48 @@
+
+.navbar-brand {
+	color: white;	
+}
+
+body {
+	background-image: url("../pic/wallpaper.jpg");
+	background-size:cover;
+}
+
+.nav-link, .nav-link:hover{
+  color: white;
+}
+
+.btn-my {
+	background-color: #480a8a;
+}
+
+.card-my {
+  background-color: white;
+  border-bottom-color: #480a8a;
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+}
+
+
+.header-my {
+	text-align: center;
+	color: white;
+}
+
+.alert-my{
+    display: none;
+}
+
+.tr-chosen{
+    background-color: #b699e6;
+}
+
+hr {
+  height: 4px;
+  margin-left: 15px;
+  margin-bottom:5px;
+}
+
+.hr-primary{
+  background-image: -webkit-linear-gradient(left, rgb(76, 73, 139), rgb(76, 73, 139), rgba(0,0,0,0));
+}
