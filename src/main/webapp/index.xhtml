@@ -28,13 +28,9 @@
                             <h3 class="pb-3">Saint-Petersburg</h3>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p:dataTable tableStyleClass="table table-hover" var="stationInfo" value="#{index.infoList}">
+                                    <p:dataTable tableStyleClass="table table-hover" var="stationInfo" value="#{index.infoList}" id="table">
                                         <p:column headerText="Ride ID">
                                             <h:outputText value="#{stationInfo.rideId}"/>
-                                        </p:column>
-
-                                        <p:column headerText="Departure">
-                                            <h:outputText value="#{stationInfo.datetime}"/>
                                         </p:column>
 
                                         <p:column headerText="Route">
@@ -58,16 +54,11 @@
                 </div>
             </div>
         </div>
-        <f:websocket channel="infoChanges" onmessage="myFunc"/>
+        <f:websocket channel="infoChanges" onmessage="update"/>
 
 
         <h:outputScript name="js/jquery-3.3.1.min.js"/>
         <h:outputScript name="js/bootstrap.min.js"/>
-
-        <script>
-            function myFunc(message, channel, event) {
-                alert(message);
-            }
-        </script>
+        <h:outputScript name="js/board.js"/>
     </h:body>
 </html>

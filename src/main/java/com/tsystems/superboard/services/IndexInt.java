@@ -7,5 +7,5 @@ import java.util.List;
 
 @Remote
 public interface IndexInt {
-    public List<StationInfoDto> getInfo();
+    public List<StationInfoDto> getInfo(String city);
 }

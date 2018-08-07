@@ -33,7 +33,7 @@ public class IndexBean implements Serializable {
 
     @PostConstruct
     public void init(){
-        infoList = index.getInfo();
+        infoList = index.getInfo("Saint-Petersburg");
 
         if (rabbit == null){
             rabbit = new ConnectionFactory();

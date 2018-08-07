@@ -19,11 +19,11 @@ public class IndexImpl implements IndexInt{
     private static final Logger log = Logger.getLogger(IndexImpl.class);
 
     @Override
-    public List<StationInfoDto> getInfo() {
+    public List<StationInfoDto> getInfo(String city) {
         List<StationInfoDto> stationInfoDtoList = new ArrayList<>();
 
         JSONObject requestJSON = new JSONObject();
-        requestJSON.put("name", "Saint-Petersburg");
+        requestJSON.put("name", city);
 
         HttpResponse<JsonNode> response = null;
         try {
