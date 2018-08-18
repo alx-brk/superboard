@@ -28,25 +28,28 @@
                             <h3 class="pb-3">Saint-Petersburg</h3>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p:dataTable tableStyleClass="table table-hover" var="stationInfo" value="#{index.infoList}" id="table">
-                                        <p:column headerText="Ride ID">
+                                    <h:dataTable value="#{index.infoList}" var="stationInfo" id="table" styleClass="table">
+                                        <h:column>
+                                            <f:facet name="header">Ride ID</f:facet>
                                             <h:outputText value="#{stationInfo.rideId}"/>
-                                        </p:column>
+                                        </h:column>
 
-                                        <p:column headerText="Route">
+                                        <h:column>
+                                            <f:facet name="header">Route</f:facet>
 
-                                            <p:dataTable var="station" value="#{stationInfo.stations}">
-                                                <p:column headerText="Station">
+                                            <h:dataTable value="#{stationInfo.stations}" var="station" styleClass="table">
+                                                <h:column>
+                                                    <f:facet name="header">Station</f:facet>
                                                     <h:outputText value="#{station.station}"/>
-                                                </p:column>
+                                                </h:column>
 
-                                                <p:column headerText="Time">
+                                                <h:column>
+                                                    <f:facet name="header">Time</f:facet>
                                                     <h:outputText value="#{station.dateTime}"/>
-                                                </p:column>
-                                            </p:dataTable>
-
-                                        </p:column>
-                                    </p:dataTable>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </h:column>
+                                    </h:dataTable>
                                 </div>
                             </div>
                         </div>
